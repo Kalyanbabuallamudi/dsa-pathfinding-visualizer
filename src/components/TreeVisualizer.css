@@ -1,0 +1,106 @@
+.tree-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  max-width: 90%;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  margin: 40px auto;
+  position: relative;
+  background: linear-gradient(145deg, #e6f7ff, #e2f0fe);
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.15), -10px -10px 20px rgba(255, 255, 255, 0.9);
+  transition: transform 0.4s ease-in-out, box-shadow 0.4s ease-in-out;
+}
+
+.tree-container:hover {
+  transform: scale(1.05);
+  box-shadow: 15px 15px 30px rgba(0, 0, 0, 0.2), -15px -15px 30px rgba(255, 255, 255, 0.9);
+}
+
+.tree-node {
+  height: 70px;
+  width: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(circle, #ffeb3b, #f57c00);
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  margin: 15px;
+  color: #333;
+  font-weight: bold;
+  font-family: 'Roboto', sans-serif;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2), -5px -5px 15px rgba(255, 255, 255, 0.7);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.tree-node:hover {
+  background: radial-gradient(circle, #ffd54f, #f57c00);
+  transform: translateY(-10px) scale(1.15);
+  box-shadow: 8px 8px 20px rgba(0, 0, 0, 0.25), -8px -8px 20px rgba(255, 255, 255, 0.8);
+}
+
+.tree-node:active {
+  background: radial-gradient(circle, #f57c00, #d32f2f);
+  transform: scale(0.95);
+}
+
+.tree-node.active {
+  background: radial-gradient(circle, #d32f2f, #c2185b);
+  color: white;
+  border: 2px solid rgba(255, 0, 0, 0.6);
+  animation: pulse-glow 1.2s infinite;
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+}
+
+.tree-node::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0));
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 50%;
+}
+
+.tree-node:hover::before {
+  opacity: 1;
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.5);
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+  }
+}
+
+.tree-node span {
+  position: absolute;
+  bottom: -25px;
+  font-size: 14px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #666;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, bottom 0.3s ease-in-out;
+}
+
+.tree-node:hover span {
+  opacity: 1;
+  bottom: -15px;
+}
