@@ -6,7 +6,7 @@ import Controls from "./components/Controls";
 function App() {
   return (
     <div className="App">
-      <h1>Pathfinding Visualizer</h1>
+      <h1>Interactive DSA Pathfinding Visualizer: Visualize and Understand Algorithms in Real-Time</h1>
       <Controls />
       <Grid />
     </div>

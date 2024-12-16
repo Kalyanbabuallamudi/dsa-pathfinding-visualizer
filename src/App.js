@@ -93,7 +93,7 @@ const App = () => {
   return (
     <div className="app-container">
       <header className="app-header">
-        <h1>Pathfinding Visualizer</h1>
+        <h1>DSA Pathfinding Visualizer: Real-Time Algorithm Insights and Visualization</h1>
         <p>Visualize graph algorithms in an interactive and fun way!</p>
       </header>
 
